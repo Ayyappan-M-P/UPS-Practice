@@ -55,6 +55,10 @@ public class Practice1
         Console.WriteLine(p1);
         var p2=p1 with {Y=4};
         Console.WriteLine(p2);
+
+        String n= Console.ReadLine();
+        Console.WriteLine(n);
+        //changes
         
         
     }
