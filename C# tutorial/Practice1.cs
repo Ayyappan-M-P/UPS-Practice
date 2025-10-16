@@ -59,6 +59,11 @@ public class Practice1
         String n= Console.ReadLine();
         Console.WriteLine(n);
         //changes
+
+        int first=1;
+        double second = 1.07;
+        Console.WriteLine(first.GetType());
+        Console.WriteLine(second.GetType());
         
         
     }
