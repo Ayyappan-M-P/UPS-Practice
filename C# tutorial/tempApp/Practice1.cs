@@ -190,5 +190,15 @@ public class Practice1
         double z = Math.Sqrt((x * x) + (y * y));
 
         Console.WriteLine("The hypotenuse is: " + z);
+
+        //string interpolation
+        string name = "John";
+        //string insert
+        string newname = name.Insert(0, "Hello ");
+        Console.WriteLine(newname);
+
+        //substring
+        string substr = newname.Substring(0, 5);
+        Console.WriteLine(substr);
     }
 }
