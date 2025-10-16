@@ -151,6 +151,15 @@ public class Practice1
         double second = 1.07;
         Console.WriteLine(first.GetType());
         Console.WriteLine(second.GetType());
+
+        int input = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine(input);
+        /*
+        Convert.ToInt32
+        Convert.ToDouble
+        Convert.ToString
+        Convert.ToBoolean
+        */
         
         
     }
