@@ -180,6 +180,15 @@ public class Practice1
         Console.WriteLine(random.NextDouble());
         
         
-        
+        //Hypothesis
+        Console.WriteLine("Enter side A: ");
+        double x = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Enter side B: ");
+        double y = Convert.ToDouble(Console.ReadLine());
+
+        double z = Math.Sqrt((x * x) + (y * y));
+
+        Console.WriteLine("The hypotenuse is: " + z);
     }
 }
