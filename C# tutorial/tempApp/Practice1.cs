@@ -172,6 +172,12 @@ public class Practice1
         Console.WriteLine(Math.Sqrt(64));
         Console.WriteLine(Math.PI);
         Console.WriteLine(Math.E);
+
+        //Random
+        Random random = new Random();
+        Console.WriteLine(random.Next());
+        Console.WriteLine(random.Next(1, 7));
+        Console.WriteLine(random.NextDouble());
         
         
         
