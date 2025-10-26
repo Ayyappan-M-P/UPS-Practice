@@ -12,9 +12,13 @@ class Arrays
         cars[1] = "Mustang";
         cars[2] = "Corvette";
 
-        for (int i = 0; i < cars.Length; i++)
+        // for (int i = 0; i < cars.Length; i++)
+        // {
+        //     Console.WriteLine(cars[i]);
+        // }
+        foreach (String car in cars)
         {
-            Console.WriteLine(cars[i]);
+            Console.WriteLine(car);
         }
         Console.ReadKey();
     }
