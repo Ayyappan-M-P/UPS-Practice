@@ -1,32 +1,32 @@
-interface IFirstInterface 
-{
-  void myMethod(); // interface method
-}
+// interface IFirstInterface 
+// {
+//   void myMethod(); // interface method
+// }
 
-interface ISecondInterface 
-{
-  void myOtherMethod(); // interface method
-}
+// interface ISecondInterface 
+// {
+//   void myOtherMethod(); // interface method
+// }
 
-// Implement multiple interfaces
-class DemoClass : IFirstInterface, ISecondInterface 
-{
-  public void myMethod() 
-  {
-    Console.WriteLine("Some text..");
-  }
-  public void myOtherMethod() 
-  {
-    Console.WriteLine("Some other text...");
-  }
-}
+// // Implement multiple interfaces
+// class DemoClass : IFirstInterface, ISecondInterface 
+// {
+//   public void myMethod() 
+//   {
+//     Console.WriteLine("Some text..");
+//   }
+//   public void myOtherMethod() 
+//   {
+//     Console.WriteLine("Some other text...");
+//   }
+// }
 
-class Interface 
-{
-  static void Main(string[] args)
-  {
-    DemoClass myObj = new DemoClass();
-    myObj.myMethod();
-    myObj.myOtherMethod();
-  }
-}
+// class Interface 
+// {
+//   static void Main(string[] args)
+//   {
+//     DemoClass myObj = new DemoClass();
+//     myObj.myMethod();
+//     myObj.myOtherMethod();
+//   }
+// }
