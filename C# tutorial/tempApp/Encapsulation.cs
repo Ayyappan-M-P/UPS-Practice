@@ -46,3 +46,44 @@
 //     }
 
 // }
+
+
+// using System;
+
+// class BankAccount
+// {
+//     private double balance; // hidden data (encapsulated)
+
+//     // Method to deposit money
+//     public void Deposit(double amount)
+//     {
+//         if (amount > 0)
+//             balance += amount;
+//     }
+
+//     // Method to withdraw money
+//     public void Withdraw(double amount)
+//     {
+//         if (amount <= balance)
+//             balance -= amount;
+//         else
+//             Console.WriteLine("Insufficient balance!");
+//     }
+
+//     // Method to get balance (controlled access)
+//     public double GetBalance()
+//     {
+//         return balance;
+//     }
+// }
+
+// class encapsulated
+// {
+//     static void Main()
+//     {
+//         BankAccount acc = new BankAccount();
+//         acc.Deposit(5000);
+//         acc.Withdraw(1000);
+//         Console.WriteLine("Balance: " + acc.GetBalance());
+//     }
+// }
