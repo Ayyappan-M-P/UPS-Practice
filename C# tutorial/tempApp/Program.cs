@@ -1,32 +1,32 @@
 using System;
 //1
-class A{
-    public static int count = 0;
-    static A() {
-        count++;
-        Console.WriteLine("Static");
-    }
-    public A()
-    {
-        count++;
-        Console.WriteLine("Instance");
-    }
-}
+// class A{
+//     public static int count = 0;
+//     static A() {
+//         count++;
+//         Console.WriteLine("Static");
+//     }
+//     public A()
+//     {
+//         count++;
+//         Console.WriteLine("Instance");
+//     }
+// }
 
-class Program
-{
-    static void Main()
-    {
-        Console.WriteLine("Start");
-        A a1 = new A();
-        A a2 = new A();
-        Console.WriteLine($"Count = {A.count}");
-    }
-}
+// class Program
+// {
+//     static void Main()
+//     {
+//         Console.WriteLine("Start");
+//         A a1 = new A();
+//         A a2 = new A();
+//         Console.WriteLine($"Count = {A.count}");
+//     }
+// }
 
 //2
 
-//class Program
+// class Program
 // {
 //     static void Compute(int x, ref int y, out int z)
 //     {
@@ -44,30 +44,30 @@ class Program
 
 
 //3
-// class Base
-// {
-//     protected int x;
-//     public Base(int a)
-//     {
-//         x = a;
-//         Console.WriteLine($"Base a={x}");
-//     }
+class Base
+{
+    protected int x;
+    public Base(int a)
+    {
+        x = a;
+        Console.WriteLine($"Base a={x}");
+    }
 
-// }
-// class Derived : Base
-// {
+}
+class Derived : Base
+{
 
-//     public Derived(int a, int b) : base(b)
-//     {
-//         int sum = a+b;
-//         Console.WriteLine($"Derived sum={sum}");
-//     }
-// }
+    public Derived(int a, int b) : base(b)
+    {
+        int sum = a+b;
+        Console.WriteLine($"Derived sum={sum}");
+    }
+}
 
-// class Program
-// {
-//     static void Main()
-//     {
-//         Derived d = new Derived(2, 3);
-//     }
-// }
+class Program
+{
+    static void Main()
+    {
+        Derived d = new Derived(2, 3);
+    }
+}
