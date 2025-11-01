@@ -1,10 +1,17 @@
-body {
-    font-family: monospace;
+:root {
+  --green: #00FF00;
+  --white: #FFFFFF;
+  --black: #000000;
+  --blue: #0066CC;
+  --light-blue: #E6F3FF;
 }
 
-ul {
-    font-family: helvetica;
+body {
+  background: var(--bg);
+  color: var(--fontColor);
+  font-family: Arial;
 }
+
 li {
   list-style: circle;
 }
@@ -13,10 +20,33 @@ li {
   list-style: square;
 }
 
-#msg {
-  font-family: monospace;
-}
 .light-theme {
-  color: #000000;
-  background: #00FF00;
+  --bg: var(--green);
+  --fontColor: var(--black);
+  --btnBg: var(--black);
+  --btnFontColor: var(--white);
+}
+
+.dark-theme {
+  --bg: var(--black);
+  --fontColor: var(--green);
+  --btnBg: var(--white);
+  --btnFontColor: var(--black);
+}
+
+.medium-theme {
+  --bg: var(--light-blue);
+  --fontColor: var(--blue);
+}
+
+.btn {
+  position: absolute;
+  top: 20px;
+  left: 250px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  color: var(--btnFontColor);
+  background-color: var(--btnBg);
 }
