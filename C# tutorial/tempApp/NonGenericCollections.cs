@@ -9,7 +9,7 @@
 
 // class NonGenericCollections
 // {
-//     public static void Run()
+//     public static void Main()
 //     {
 //         Console.WriteLine("Non-Generic Collections demo\n");
 
@@ -53,6 +53,8 @@
 //         stack.Push(1);
 //         stack.Push(2);
 //         stack.Push(3);
+//         stack.Push("top");
+
 
 //         Console.WriteLine("\nStack (pop):");
 //         while (stack.Count > 0)
