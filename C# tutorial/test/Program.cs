@@ -35,8 +35,8 @@ class Program
                     else
                     {
                         Console.WriteLine("Invalid amount! Please enter a positive number.");
-                    }
-                    break;
+                    }ā
+                    break;ā
 
                 case 2:
                     Console.Write("Enter amount to withdraw: ");
