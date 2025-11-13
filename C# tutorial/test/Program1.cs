@@ -1,56 +1,93 @@
-// using System;
+// public delegate void MaintenanceAlertHandler(string message);
+
+// public abstract class Vehicle
+// {
+//     public string Name { get; set; }
+//     public double FuelLevel { get; set; } 
+
+//     public MaintenanceAlertHandler Alert;
+
+//     public Vehicle(string name, double fuelLevel)
+//     {
+//         Name = name;
+//         FuelLevel = fuelLevel;
+//     }
+
+//     public abstract void CheckFuel();
+// }
+
+// public class Car : Vehicle
+// {
+//     public Car(string name, double fuelLevel) : base(name, fuelLevel) { }
+
+//     public override void CheckFuel()
+//     {
+//         if (FuelLevel <= 15)
+//         {
+//             Console.WriteLine($"Car {Name} has low fuel! ({FuelLevel}% remaining)");
+//         }
+//         else
+//         {
+//             Console.WriteLine($"Car {Name} has sufficient fuel ({FuelLevel}%).");
+//         }
+//     }
+// }
+
+// public class Truck : Vehicle
+// {
+//     public Truck(string name, double fuelLevel) : base(name, fuelLevel) { }
+
+//     public override void CheckFuel()
+//     {
+//         if (FuelLevel <= 20)
+//         {
+//             Console.WriteLine($"Truck {Name} fuel is running low! ({FuelLevel}% remaining)");
+//         }
+//         else
+//         {
+//             Console.WriteLine($"Truck {Name} has enough fuel ({FuelLevel}%).");
+//         }
+//     }
+// }
+
+// public class Bike : Vehicle
+// {
+//     public Bike(string name, double fuelLevel) : base(name, fuelLevel) { }
+
+//     public override void CheckFuel()
+//     {
+//         if (FuelLevel <= 10)
+//         {
+//             Console.WriteLine($"Bike {Name} needs refueling soon! ({FuelLevel}% remaining)");
+//         }
+//         else
+//         {
+//             Console.WriteLine($"Bike {Name} fuel level is okay ({FuelLevel}%).");
+//         }
+//     }
+// }
 
 // class Program1
 // {
 //     static void Main()
 //     {
-//         string name;
-//         int marks;
-//         double total = 0; 
+//         Car car = new Car("BMW", 12);
+//         Truck truck = new Truck("TATA", 35);
+//         Bike bike = new Bike("MT15", 8);
 
-//         Console.WriteLine("Student Grade Evaluation System");
+//         car.Alert = DisplayAlert;
+//         truck.Alert = DisplayAlert;
+//         bike.Alert = DisplayAlert;
 
-//         for (int i = 1; i <= 5; i++)
-//         {
-//             Console.Write($"\nEnter name of student {i}: ");
-//             name = Console.ReadLine();
+//         car.CheckFuel();
+//         truck.CheckFuel();
+//         bike.CheckFuel();
+//     }
 
-//             do
-//             {
-//                 Console.Write($"Enter total marks (out of 500) for {name}: ");
-//                 marks = Convert.ToInt32(Console.ReadLine());
-
-//                 if (marks < 0)
-//                 {
-//                     Console.WriteLine("Marks cannot be negative. Please re-enter.");
-//                 }
-
-//             } while (marks < 0);
-
-            
-//             double percent = (marks / 500.0) * 100;
-//             total += percent;
-
-//             string grade;
-
-//             if (percent >= 90)
-//                 grade = "A+";
-//             else if (percent >= 80 && percent <= 89)
-//                 grade = "A";
-//             else if (percent >= 70 && percent <= 79)
-//                 grade = "B";
-//             else if (percent >= 60 && percent <= 69)
-//                 grade = "C";
-//             else
-//                 grade = "Fail";
-
-          
-//             Console.WriteLine($"Student: {name}");
-//             Console.WriteLine($"percentage: {percent:F2}%");
-//             Console.WriteLine($"Grade: {grade}");
-//         }
-
-//         double avg = total / 5;
-//         Console.WriteLine($"\nClass Average percentage: {avg:F2}%");
+//     static void DisplayAlert(string message)
+//     {
+        
+//         Console.WriteLine("\nALERT: " + message);
+        
 //     }
 // }

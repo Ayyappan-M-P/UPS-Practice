@@ -110,3 +110,30 @@
 //         foreach (var act in actions) act();
 //     }
 // }
+
+class Program
+{
+    static void Main()
+    {
+        int[] arr = { 9, 7, 8, 4, 5, 6, 3, 1, 2, 0 };
+        Array.Sort(arr);
+        int[] ans = new int[10];
+        int n = arr.Length;
+        for (int i = 0; i < n; i++)
+        {
+            if (i % 2 == 0)
+            {
+                ans[i] = arr[n - 1 - (i / 2)];
+            }
+            else
+            {
+                ans[i] = arr[i / 2];
+            }
+        }
+        
+        foreach(int num in ans){
+            Console.Write(num+" ");
+        }
+
+    }
+}

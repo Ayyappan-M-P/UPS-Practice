@@ -1,225 +1,213 @@
-// using System;
-// using System.Collections.Generic;
-// using System.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-// /*
-//  Complete LINQ Example
+/*
+ LINQ (Language Integrated Query) Demo
  
-//  Demonstrates:
-//  - Student class and sample data
-//  - Method Syntax (filtering, ordering, projection)
-//  - Query Syntax (alternative syntax)
-//  - Grouping
-//  - Joining
-//  - Aggregation (Count, Sum, Average, etc.)
-//  - Any() and FirstOrDefault()
+ Demonstrates:
+ - Method Syntax: Where, OrderByDescending, Select
+ - Query Syntax: from/where/orderby/select
+ - Grouping: GroupBy
+ - Joining: Join between two collections
+ - Aggregation: Count, Sum, Average, Max, Min, FirstOrDefault
  
-//  Usage: Call Linq.Run() from Main
-// */
+ Usage:
+ - Call Linq.Run() from Main to execute the demo
+ - Or replace existing Main with: static void Main() { Linq.Run(); }
+*/
 
-// public class Student
-// {
-//     public int Id { get; set; }
-//     public string Name { get; set; }
-//     public string Department { get; set; }
-//     public int Marks { get; set; }
-// }
+public class Student
+{
+    public int Id { get; set; }
+    public string? Name { get; set; }
+    public string? Department { get; set; }
+    public int Marks { get; set; }
+}
 
-// public class Department
-// {
-//     public int DeptId { get; set; }
-//     public string DeptName { get; set; }
-// }
+public class Department
+{
+    public int Id { get; set; }
+    public string? DeptName { get; set; }
+}
 
-// public static class Linq
-// {
-//     // Sample student data
-//     static List<Student> students = new List<Student>
-//     {
-//         new Student { Id = 1, Name = "Alice", Department = "CS", Marks = 85 },
-//         new Student { Id = 2, Name = "Bob", Department = "EC", Marks = 75 },
-//         new Student { Id = 3, Name = "Charlie", Department = "CS", Marks = 92 },
-//         new Student { Id = 4, Name = "Diana", Department = "ME", Marks = 68 },
-//         new Student { Id = 5, Name = "Eve", Department = "CS", Marks = 88 },
-//         new Student { Id = 6, Name = "Frank", Department = "EC", Marks = 78 },
-//     };
+public static class Linq
+{
+    static List<Student> students = new List<Student>()
+    {
+        new Student { Id = 1, Name = "Alice", Department = "CSE", Marks = 92 },
+        new Student { Id = 2, Name = "Bob", Department = "ECE", Marks = 75 },
+        new Student { Id = 3, Name = "Charlie", Department = "CSE", Marks = 88 },
+        new Student { Id = 4, Name = "Diana", Department = "MECH", Marks = 95 },
+        new Student { Id = 5, Name = "Eve", Department = "ECE", Marks = 65 },
+        new Student { Id = 6, Name = "Frank", Department = "CSE", Marks = 78 },
+        new Student { Id = 7, Name = "Grace", Department = "MECH", Marks = 82 },
+    };
 
-//     // Sample department data
-//     static List<Department> departments = new List<Department>
-//     {
-//         new Department { DeptId = 1, DeptName = "Computer Science" },
-//         new Department { DeptId = 2, DeptName = "Electronics" },
-//         new Department { DeptId = 3, DeptName = "Mechanical" },
-//     };
+    static List<Department> departments = new List<Department>()
+    {
+        new Department { Id = 1, DeptName = "CSE" },
+        new Department { Id = 2, DeptName = "ECE" },
+        new Department { Id = 3, DeptName = "MECH" }
+    };
 
-//     public static void Run()
-//     {
-//         Console.WriteLine("===== LINQ Examples =====\n");
+    public static void Run()
+    {
+        Console.WriteLine("========== LINQ Demo ==========\n");
 
-//         // Example 1: Method Syntax (from user input)
-//         MethodSyntaxExample();
+        // 1. Method Syntax - Where, OrderByDescending, Select
+        MethodSyntaxExample();
 
-//         // Example 2: Query Syntax
-//         QuerySyntaxExample();
+        // 2. Query Syntax
+        QuerySyntaxExample();
 
-//         // Example 3: Grouping
-//         GroupingExample();
+        // 3. Grouping
+        GroupingExample();
 
-//         // Example 4: Joining
-//         JoiningExample();
+        // 4. Joining
+        JoiningExample();
 
-//         // Example 5: Aggregation
-//         AggregationExample();
+        // 5. Aggregation
+        AggregationExample();
+    }
 
-//         // Example 6: Deferred Execution
-//         DeferredExecutionExample();
-//     }
+    static void MethodSyntaxExample()
+    {
+        Console.WriteLine("1. METHOD SYNTAX - Filter, Order, Project");
+        Console.WriteLine("---");
 
-//     // Example 1: Method Syntax (filtering, ordering, projection)
-//     static void MethodSyntaxExample()
-//     {
-//         Console.WriteLine("--- Example 1: Method Syntax ---");
-//         Console.Write("Enter Students Cutoff Marks: ");
-//         int cutoff = int.Parse(Console.ReadLine() ?? "70");
+        Console.Write("Enter cutoff marks: ");
+        int cutoff = int.Parse(Console.ReadLine() ?? "70");
 
-//         // Method Syntax: Where -> OrderByDescending -> Select
-//         var result = students
-//             .Where(s => s.Marks >= cutoff)
-//             .OrderByDescending(s => s.Name)
-//             .Select(s => new { s.Name, s.Department, s.Marks });
+        // Method Syntax: Where -> OrderByDescending -> Select
+        var result = students
+                        .Where(s => s.Marks >= cutoff)
+                        .OrderByDescending(s => s.Marks)
+                        .Select(s => new { s.Name, s.Department, s.Marks });
 
-//         Console.WriteLine($"Student Details with marks >= {cutoff}");
+        Console.WriteLine($"\nStudents with marks >= {cutoff}:");
 
-//         if (result.Any())
-//         {
-//             foreach (var s in result)
-//             {
-//                 Console.WriteLine($"Name: {s.Name}, Department: {s.Department}, Marks: {s.Marks}");
-//             }
-//         }
-//         else
-//         {
-//             Console.WriteLine("No students found above cutoff marks");
-//         }
-//         Console.WriteLine();
-//     }
+        if (result.Any())
+        {
+            foreach (var s in result)
+            {
+                Console.WriteLine($"  Name: {s.Name}, Department: {s.Department}, Marks: {s.Marks}");
+            }
+        }
+        else
+        {
+            Console.WriteLine("  No students found above cutoff marks");
+        }
 
-//     // Example 2: Query Syntax (alternative to method syntax)
-//     static void QuerySyntaxExample()
-//     {
-//         Console.WriteLine("--- Example 2: Query Syntax ---");
+        Console.WriteLine();
+    }
 
-//         // Query Syntax equivalent to method syntax
-//         var result = from s in students
-//                      where s.Marks >= 80
-//                      orderby s.Name
-//                      select new { s.Name, s.Marks };
+    static void QuerySyntaxExample()
+    {
+        Console.WriteLine("2. QUERY SYNTAX - from/where/orderby/select");
+        Console.WriteLine("---");
 
-//         Console.WriteLine("Students with marks >= 80 (Query Syntax):");
-//         foreach (var s in result)
-//         {
-//             Console.WriteLine($"Name: {s.Name}, Marks: {s.Marks}");
-//         }
-//         Console.WriteLine();
-//     }
+        // Query Syntax (SQL-like)
+        var result = from s in students
+                     where s.Marks >= 80
+                     orderby s.Name
+                     select new { s.Id, s.Name, s.Marks };
 
-//     // Example 3: Grouping
-//     static void GroupingExample()
-//     {
-//         Console.WriteLine("--- Example 3: Grouping by Department ---");
+        Console.WriteLine("Students with marks >= 80 (sorted by name):");
 
-//         // Group students by department
-//         var grouped = students
-//             .GroupBy(s => s.Department)
-//             .Select(g => new
-//             {
-//                 Department = g.Key,
-//                 Count = g.Count(),
-//                 AvgMarks = g.Average(s => s.Marks),
-//                 Students = g.ToList()
-//             });
+        foreach (var s in result)
+        {
+            Console.WriteLine($"  ID: {s.Id}, Name: {s.Name}, Marks: {s.Marks}");
+        }
 
-//         foreach (var dept in grouped)
-//         {
-//             Console.WriteLine($"Department: {dept.Department}");
-//             Console.WriteLine($"  Count: {dept.Count}, Average Marks: {dept.AvgMarks:F2}");
-//             foreach (var s in dept.Students)
-//             {
-//                 Console.WriteLine($"    - {s.Name} ({s.Marks})");
-//             }
-//         }
-//         Console.WriteLine();
-//     }
+        Console.WriteLine();
+    }
 
-//     // Example 4: Joining
-//     static void JoiningExample()
-//     {
-//         Console.WriteLine("--- Example 4: Joining Students with Departments ---");
+    static void GroupingExample()
+    {
+        Console.WriteLine("3. GROUPING - GroupBy");
+        Console.WriteLine("---");
 
-//         // Inner join: students with their full department names
-//         var joined = from s in students
-//                      join d in departments on s.Department equals d.DeptName.Substring(0, 2).ToUpper()
-//                      select new
-//                      {
-//                          s.Name,
-//                          s.Marks,
-//                          FullDeptName = d.DeptName
-//                      };
+        // Group students by department
+        var grouped = students
+                        .GroupBy(s => s.Department)
+                        .Select(g => new 
+                        { 
+                            Department = g.Key, 
+                            Count = g.Count(), 
+                            AvgMarks = g.Average(s => s.Marks),
+                            Students = g.Select(s => s.Name).ToList()
+                        });
 
-//         Console.WriteLine("Students and their Departments:");
-//         foreach (var item in joined)
-//         {
-//             Console.WriteLine($"Name: {item.Name}, Marks: {item.Marks}, Dept: {item.FullDeptName}");
-//         }
-//         Console.WriteLine();
-//     }
+        Console.WriteLine("Students grouped by department:");
 
-//     // Example 5: Aggregation
-//     static void AggregationExample()
-//     {
-//         Console.WriteLine("--- Example 5: Aggregation ---");
+        foreach (var dept in grouped)
+        {
+            Console.WriteLine($"\n  Department: {dept.Department}");
+            Console.WriteLine($"    Count: {dept.Count}");
+            Console.WriteLine($"    Average Marks: {dept.AvgMarks:F2}");
+            Console.WriteLine($"    Students: {string.Join(", ", dept.Students)}");
+        }
 
-//         int totalStudents = students.Count();
-//         double avgMarks = students.Average(s => s.Marks);
-//         int maxMarks = students.Max(s => s.Marks);
-//         int minMarks = students.Min(s => s.Marks);
-//         int sumMarks = students.Sum(s => s.Marks);
+        Console.WriteLine();
+    }
 
-//         Console.WriteLine($"Total Students: {totalStudents}");
-//         Console.WriteLine($"Average Marks: {avgMarks:F2}");
-//         Console.WriteLine($"Highest Marks: {maxMarks}");
-//         Console.WriteLine($"Lowest Marks: {minMarks}");
-//         Console.WriteLine($"Sum of Marks: {sumMarks}");
+    static void JoiningExample()
+    {
+        Console.WriteLine("4. JOINING - Inner Join");
+        Console.WriteLine("---");
 
-//         // FirstOrDefault
-//         var firstStudent = students.FirstOrDefault();
-//         if (firstStudent != null)
-//             Console.WriteLine($"First Student: {firstStudent.Name}");
+        // Join students with departments
+        var joined = students
+                        .Join(departments,
+                              s => s.Department,
+                              d => d.DeptName,
+                              (s, d) => new
+                              {
+                                  StudentName = s.Name,
+                                  DepartmentName = d.DeptName,
+                                  Marks = s.Marks
+                              })
+                        .OrderBy(x => x.DepartmentName)
+                        .ThenBy(x => x.StudentName);
 
-//         // Find student with highest marks
-//         var topStudent = students.OrderByDescending(s => s.Marks).FirstOrDefault();
-//         Console.WriteLine($"Top Student: {topStudent?.Name} ({topStudent?.Marks})");
-//         Console.WriteLine();
-//     }
+        Console.WriteLine("Students with Department Info:");
 
-//     // Example 6: Deferred Execution vs Immediate Execution
-//     static void DeferredExecutionExample()
-//     {
-//         Console.WriteLine("--- Example 6: Deferred Execution ---");
+        foreach (var item in joined)
+        {
+            Console.WriteLine($"  {item.StudentName} | Dept: {item.DepartmentName} | Marks: {item.Marks}");
+        }
 
-//         // Deferred: query is not executed until enumerated
-//         IEnumerable<Student> deferredQuery = students.Where(s => s.Marks > 75);
-//         Console.WriteLine("Query created (deferred, not executed yet)");
+        Console.WriteLine();
+    }
 
-//         // Immediate: query executes right away
-//         List<Student> immediateQuery = students.Where(s => s.Marks > 75).ToList();
-//         Console.WriteLine("Query executed immediately (converted to List)");
+    static void AggregationExample()
+    {
+        Console.WriteLine("5. AGGREGATION - Count, Sum, Average, Max, Min");
+        Console.WriteLine("---");
 
-//         Console.WriteLine($"\nStudents with marks > 75:");
-//         foreach (var s in deferredQuery)
-//         {
-//             Console.WriteLine($"Name: {s.Name}, Marks: {s.Marks}");
-//         }
-//         Console.WriteLine();
-//     }
-// }
+        Console.WriteLine($"Total Students: {students.Count()}");
+        Console.WriteLine($"Total Marks (sum): {students.Sum(s => s.Marks)}");
+        Console.WriteLine($"Average Marks: {students.Average(s => s.Marks):F2}");
+        Console.WriteLine($"Highest Marks: {students.Max(s => s.Marks)}");
+        Console.WriteLine($"Lowest Marks: {students.Min(s => s.Marks)}");
+
+        // FirstOrDefault
+        var topStudent = students.OrderByDescending(s => s.Marks).FirstOrDefault();
+        Console.WriteLine($"Top Student: {topStudent?.Name} ({topStudent?.Marks})");
+
+        // Distinct departments
+        var uniqueDepts = students.Select(s => s.Department).Distinct();
+        Console.WriteLine($"Unique Departments: {string.Join(", ", uniqueDepts)}");
+
+        // Skip and Take
+        Console.WriteLine("\nFirst 3 students (after sorting by name):");
+        var first3 = students.OrderBy(s => s.Name).Take(3);
+        foreach (var s in first3)
+        {
+            Console.WriteLine($"  {s.Name}");
+        }
+
+        Console.WriteLine();
+    }
+}
