@@ -75,3 +75,27 @@
 //         } while (choice != 4);
 //     }
 // }
+
+using System;
+using System.Linq;
+
+class Employee{
+    public string Name{get; set;}
+    public double salary{get; set;}
+}
+class Program{
+    public static void Main()
+    {
+        List<Employee> employees=new List<Employee>();
+        employees.Add(new Employee(){Name="Karan",salary=50000});
+        employees.Add(new Employee(){Name="Ayyappan",salary=60000});    
+        employees.Add(new Employee(){Name="Rahul",salary=55000});
+
+        var ans=employees.Where(employees=>employees.salary>50000).OrderBy(employees=>employees.Name).ToList();
+
+        foreach(var emp in ans)
+        {
+            Console.WriteLine($"Name:{emp.Name}, Salary:{emp.salary}");
+        }
+    }
+}

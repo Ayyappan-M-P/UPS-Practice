@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\UPS\C# tutorial\sample\bin\Debug\net9.0\sample.exe
+C:\Users\user\Desktop\UPS\C# tutorial\sample\bin\Debug\net9.0\sample.deps.json
+C:\Users\user\Desktop\UPS\C# tutorial\sample\bin\Debug\net9.0\sample.runtimeconfig.json
+C:\Users\user\Desktop\UPS\C# tutorial\sample\bin\Debug\net9.0\sample.dll
+C:\Users\user\Desktop\UPS\C# tutorial\sample\bin\Debug\net9.0\sample.pdb
+C:\Users\user\Desktop\UPS\C# tutorial\sample\obj\Debug\net9.0\sample.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\UPS\C# tutorial\sample\obj\Debug\net9.0\sample.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\UPS\C# tutorial\sample\obj\Debug\net9.0\sample.AssemblyInfo.cs
+C:\Users\user\Desktop\UPS\C# tutorial\sample\obj\Debug\net9.0\sample.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\UPS\C# tutorial\sample\obj\Debug\net9.0\sample.sourcelink.json
+C:\Users\user\Desktop\UPS\C# tutorial\sample\obj\Debug\net9.0\sample.dll
+C:\Users\user\Desktop\UPS\C# tutorial\sample\obj\Debug\net9.0\refint\sample.dll
+C:\Users\user\Desktop\UPS\C# tutorial\sample\obj\Debug\net9.0\sample.pdb
+C:\Users\user\Desktop\UPS\C# tutorial\sample\obj\Debug\net9.0\sample.genruntimeconfig.cache
+C:\Users\user\Desktop\UPS\C# tutorial\sample\obj\Debug\net9.0\ref\sample.dll
