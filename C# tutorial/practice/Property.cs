@@ -1,111 +1,80 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+// class Property{
+//     public static void Main()
+//     {
+//         List<int> list=new List<int>();
+//         list.Add(1);
+//         list.AddRange(new int[]{2,3,4,5});
+//         list.Insert(0,0);
+//         list.Remove(5);
+//         list.RemoveAt(0);
+//         list.RemoveAll(x=>x%2==0);
+//         Console.WriteLine(list.Count());
+//         Console.WriteLine(list.Contains(1));
+//         Console.WriteLine(list.IndexOf(3));
+//         list.Reverse();
+//         foreach(int i in list){
+//             Console.Write(i+" ");
+//         }
 
-public class Product
-{
-    private decimal _price;
+//         Console.WriteLine("Dictionary");
+//         Dictionary<int,string> map=new Dictionary<int, string>();
+//         map.Add(1,"one");
+//         map.Add(2,"two");
+//         map.Add(3,"three");
+//         map[4]="four";
+//         map[5]="five";
+//         map.Remove(5);
+//         Console.WriteLine(map.ContainsKey(2));
+//         Console.WriteLine(map.ContainsValue("three"));
+//         if(map.TryGetValue(6,out string name))
+//         {
+//             Console.WriteLine(name);
+//         }
+//         else
+//         {
+//             Console.WriteLine("Key not found");
+//         }
+//         Console.WriteLine(map.Count);
+//         Console.WriteLine("keys:" + map.Keys);
+//         Console.WriteLine("values:" + map.Values);
+//         foreach(KeyValuePair<int,string> i in map)
+//         {
+//             Console.WriteLine($"Key : {i.Key}, Value : {i.Value}");
+//         }
 
-    public int Id { get; private set; }
-    public string Name { get; set; }
+//         Console.WriteLine("HashSet");
+//         HashSet<int> set=new HashSet<int>();
+//         set.Add(1);
+//         set.Add(2);
+//         set.Add(2);
+//         set.Add(3);
+//         set.Remove(2);
+//         Console.WriteLine(set.Contains(2));
+//         Console.WriteLine(set.Count);
+//         HashSet<int> set2=new HashSet<int>(){3,4,5};
+//         set.ExceptWith(set2);
+//         foreach(int i in set)
+//         {
+//             Console.Write(i+" ");
+//         }
+//         Console.WriteLine();
+//         Console.WriteLine("LinkerdList");
+//         LinkedList<int> llist=new LinkedList<int>();
+//         llist.AddFirst(1);
+//         llist.AddFirst(2);
+//         llist.AddFirst(3);
+//         llist.AddLast(4);
+//         llist.AddLast(5);
+//         var node=llist.Find(4);
+//         llist.AddBefore(node,0);
+//         Console.WriteLine(llist.Count);
+//         Console.WriteLine(llist.First());
+//         Console.WriteLine(llist.Last());
+//         foreach(int i in llist)
+//         {
+//             Console.Write(i+" ");
+//         }
 
-    public decimal Price
-    {
-        get => _price;
-        set
-        {
-            if (value <= 0)
-                throw new ArgumentException("positive");
-                _price = value;
-        }
-    }
 
-    public decimal Tax => Price * 0.18m;
-    public DateTime CreatedAt { get; protected set; }
-    public string InternalCode { get; internal set; }
-    public string Category { get; init; }
-    private string SecretTag { get; set; }
-
-    public Product(int id, string name, decimal price)
-    {
-        Id = id;
-        Name = name;
-        Price = price;
-        CreatedAt = DateTime.Now;
-        SecretTag = "SYS";
-    }
-
-    protected void UpdateCreatedTime()
-    {
-        CreatedAt = DateTime.Now;
-    }
-}
-
-internal class ProductCatalog : IEnumerable<Product>
-{
-    private List<Product> _products = new List<Product>();
-
-    public void Add(Product p)
-    {
-        _products.Add(p);
-    }
-
-    public IEnumerator<Product> GetEnumerator()
-    {
-        foreach (var p in _products)
-            yield return p;
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
-
-    public IEnumerable<Product> GetExpensiveProducts(decimal minPrice)
-    {
-        foreach (var p in _products)
-            if (p.Price >= minPrice)
-                yield return p;
-    }
-}
-
-class Property
-{
-    public static void Main()
-    {
-        var p1 = new Product(1, "Laptop", 60000)
-        {
-            Category = "Electronics",
-            InternalCode = "INT-001"
-        };
-
-        var p2 = new Product(2, "Chair", 3000)
-        {
-            Category = "Furniture",
-            InternalCode = "INT-002"
-        };
-
-        var catalog = new ProductCatalog();
-        catalog.Add(p1);
-        catalog.Add(p2);
-
-        Console.WriteLine("FOREACH");
-        foreach (var p in catalog)
-        {
-            Console.WriteLine($"{p.Name} | Price: {p.Price} | Tax: {p.Tax}");
-        }
-
-        Console.WriteLine("FILTERED");
-        foreach (var p in catalog.GetExpensiveProducts(10000))
-        {
-            Console.WriteLine(p.Name);
-        }
-
-        Console.WriteLine("MANUAL ENUMERATOR");
-        var enumerator = catalog.GetEnumerator();
-        while (enumerator.MoveNext())
-        {
-            Console.WriteLine(enumerator.Current.Name);
-        }
-    }
-}
+//     }
+// }
