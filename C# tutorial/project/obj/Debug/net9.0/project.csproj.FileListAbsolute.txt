@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\UPS\C# tutorial\project\obj\Debug\net9.0\project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\UPS\C# tutorial\project\obj\Debug\net9.0\project.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\UPS\C# tutorial\project\obj\Debug\net9.0\project.AssemblyInfo.cs
+C:\Users\user\Desktop\UPS\C# tutorial\project\obj\Debug\net9.0\project.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\UPS\C# tutorial\project\obj\Debug\net9.0\project.sourcelink.json
+C:\Users\user\Desktop\UPS\C# tutorial\project\bin\Debug\net9.0\project.exe
+C:\Users\user\Desktop\UPS\C# tutorial\project\bin\Debug\net9.0\project.deps.json
+C:\Users\user\Desktop\UPS\C# tutorial\project\bin\Debug\net9.0\project.runtimeconfig.json
+C:\Users\user\Desktop\UPS\C# tutorial\project\bin\Debug\net9.0\project.dll
+C:\Users\user\Desktop\UPS\C# tutorial\project\bin\Debug\net9.0\project.pdb
+C:\Users\user\Desktop\UPS\C# tutorial\project\obj\Debug\net9.0\project.dll
+C:\Users\user\Desktop\UPS\C# tutorial\project\obj\Debug\net9.0\refint\project.dll
+C:\Users\user\Desktop\UPS\C# tutorial\project\obj\Debug\net9.0\project.pdb
+C:\Users\user\Desktop\UPS\C# tutorial\project\obj\Debug\net9.0\project.genruntimeconfig.cache
+C:\Users\user\Desktop\UPS\C# tutorial\project\obj\Debug\net9.0\ref\project.dll
